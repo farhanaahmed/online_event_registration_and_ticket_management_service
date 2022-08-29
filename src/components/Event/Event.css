@@ -1,0 +1,12 @@
+.event-container{
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    margin: 20px;
+    text-align: left;
+}
+
+.event_img{
+    width: 400px;
+    height: 350px;
+    padding: 20px;
+}
