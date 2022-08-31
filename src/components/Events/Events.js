@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Event from '../Event/Event';
+import Header from '../Header/Header';
 
 const Events = () => {
     const [events,setEvents]=useState([]);
@@ -10,6 +11,7 @@ const Events = () => {
     },[]);
     return (
         <div>
+            <Header></Header>
             <h1>Featured Events</h1>
             <div>
                 {

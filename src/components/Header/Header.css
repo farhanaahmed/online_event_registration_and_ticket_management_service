@@ -1,3 +1,8 @@
+.header{
+    margin: 0px;
+    padding: 0px;
+}
+
 .header nav{
     background-color: black;
     line-height: 100px;
@@ -7,7 +12,7 @@
 .header nav a{
     text-decoration: none;
     color: red;
-    margin: 20px;
+    margin-bottom: 20px;
     padding: 10px;
     font-size: large;
     font-weight: bold;

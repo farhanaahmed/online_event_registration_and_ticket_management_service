@@ -5,8 +5,9 @@ const Header = () => {
         <div className='header'>
             <nav>  
                <a href="/home">Home</a>
-               <a href="/create Events">Create Events</a>
-               <a href="/join Events">Join Events</a>
+               <a href="/create_events">Create Events</a>
+               {/* <a href="/my_events">My Events</a> */}
+               <a href="/join_events">Join Events</a>
             </nav>
         </div>
     );
