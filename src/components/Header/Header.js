@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import './Header.css'
-import { getAuth, GoogleAuthProvider , signOut, browserLocalPersistence, inMemoryPersistence, setPersistence, signInWithRedirect, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider , signOut, browserLocalPersistence, setPersistence, signInWithPopup,onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
 import initializeAuthentication from '../../Firebase/firebase.initialize';
 
@@ -34,6 +34,24 @@ const Header = () => {
       // An error happened.
     });
   }
+
+  useMemo(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {displayName,email,photoURL} = user;
+        const loggedInUser = {
+          name: displayName,
+          email: email,
+          photo: photoURL
+        };
+        console.log("setting user");
+        setUser(loggedInUser);
+      }
+      console.log("logging in useMemo");
+      console.log(user);
+    }); 
+    },[]);
+
     return (
         <div className='header'>
             <nav>  
