@@ -54,16 +54,18 @@ const Header = () => {
 
     return (
         <div className='header'>
-            <nav>  
-                <a href="/home">Home</a>
-                <a href="/create_events">Create Events</a>
-                <a href="/my_events">My Events</a>
+            <nav className='navbar'>  
+                <div className="links">
+                  <a href="/home">Home</a>
+                  <a href="/create_events">Create Events</a>
+                  <a href="/my_events">My Events</a>
+                </div>
                 <div className="login-container">
                   { user.name ? 
                       <div className='logged-user-info'>
-                         <span> <p>{user.name}</p></span>
-                         <span> <img className='profile-pic' src={user.photo} alt="" /></span>
-                          <span><button onClick={handleSignOut}>Sign Out</button></span>
+                        <p>{user.name}</p>
+                        <img src={user.photo} alt="" />
+                        <button onClick={handleSignOut}>Sign Out</button>
                       </div>:
                       <button onClick={handleGoogleSignIn}>Sign In</button>
                   }    

@@ -10,3 +10,8 @@
     border-bottom: 1px solid lightgray;
     margin: 20px;
 }
+.event-details button{
+    width: 150px;
+    font-weight: 600;
+    height: 50px;
+}

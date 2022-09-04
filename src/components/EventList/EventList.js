@@ -62,7 +62,7 @@ const Event_List = () => {
                                 <h3>Date : {event.date}</h3>
                                 <h3>Ticket Price: {event.price} BDT</h3>
                                 <button onClick={() => onNavigate(event)}>Show Event</button>
-                                <br />
+                                <br /><br /><br />
                             </div>
                         </div>
                     )

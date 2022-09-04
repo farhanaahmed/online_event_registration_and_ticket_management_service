@@ -1,4 +1,8 @@
 .qr-code {
-    height: 200;
-    width: 200;
+    height: 100px;
+    width: 100px;
+}
+
+.description{
+    text-align: left;
 }
