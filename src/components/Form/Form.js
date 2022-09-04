@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { addDoc, collection, doc } from 'firebase/firestore';
 import { getDb } from '../../Firebase/firebase.initialize';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Form = () => {
     const [name , setName] = useState('');
@@ -49,6 +50,7 @@ const Form = () => {
         visibility : visibility
     }
     const db = getDb();
+    const navigate = useNavigate();
     async function saveEvent(userId,event){
         try{
             const eventRef = collection(db,"events");
@@ -56,6 +58,8 @@ const Form = () => {
             const userDocRef = collection(userRef,"events");
             const docRef = await addDoc(userDocRef,event);
             console.log("Document written with ID: ",docRef.id);
+            navigate("/my_events");
+
         }
         catch(e){
             console.error("error adding document: ",e);
