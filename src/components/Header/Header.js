@@ -56,9 +56,18 @@ const Header = () => {
         <div className='header'>
             <nav className='navbar'>  
                 <div className="links">
-                  <a href="/home">Home</a>
-                  <a href="/create_events">Create Events</a>
-                  <a href="/my_events">My Events</a>
+                { user.name ?
+                  <div className="events">
+                    <a href="/home">Home</a>
+                    <a href="/create_events">Create Events</a>
+                    <a href="/my_events">My Events</a>
+                  </div>:
+                  <div className="home">
+                    <a href="/home">Home</a>
+                  </div>
+
+                }
+                  
                 </div>
                 <div className="login-container">
                   { user.name ? 
