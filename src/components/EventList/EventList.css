@@ -1,0 +1,12 @@
+.event-list-header{
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.event-list{
+    border-bottom: 1px solid lightgray;
+    margin: 20px;
+}

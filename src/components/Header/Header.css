@@ -24,27 +24,31 @@
     font-size: larger;
 
 }
-.header .login-container {
-    float: right;
-    margin-right: 30px;
+.navbar{
+    display: flex;
 }
-
-.header .login-container button{
-    width: 100px;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: 30px;
-}
-.logged-user-info{
+.navbar.login-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
 }
+.logged-user-info button{
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.logged-user-info{
+    float: right;
+}
 .logged-user-info p{
     color: white;
+    width: 150px;
 }
-.profile-pic{
+.logged-user-info .profile-pic{
     border-radius: 50%;
     width: 50px;
     margin-top: 30px;
