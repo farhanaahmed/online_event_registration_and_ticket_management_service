@@ -1,57 +1,57 @@
 [
     {
-        "event_id" : "01",
-        "event_name" : "DCC CSE Iftar Mahfil",
-        "event_img" : "iftar.jpeg",
-        "event_description" : "Iftar is the time when Muslims break their fasts by the will of Allah. This is a precious time and brings a lot of blessings to everyone.Iftar is the time of huge blessings,so we should try to gather as many as we can. Wishing and sharing these beautiful events with others is a part of our culture and religion.Your Confirmation of presence at this event will make it more special and memorable for everyone. Looking forward to seeing you there.",
-        "event_date" : "15-04-2022",
-        "event_location" : "Dream World Convention Center,Zigatola,Dhanmondi",
-        "event_type" : "public",
-        "ticket_price" : "500 BDT"
+        "id" : "01",
+        "name" : "DCC CSE Iftar Mahfil",
+        "img" : "iftar.jpeg",
+        "description" : "Iftar is the time when Muslims break their fasts by the will of Allah. This is a precious time and brings a lot of blessings to everyone.Iftar is the time of huge blessings,so we should try to gather as many as we can. Wishing and sharing these beautiful events with others is a part of our culture and religion.Your Confirmation of presence at this event will make it more special and memorable for everyone. Looking forward to seeing you there.",
+        "date" : "15-04-2022",
+        "location" : "Dream World Convention Center,Zigatola,Dhanmondi",
+        "type" : "public",
+        "price" : "500 BDT"
 
     },
     {
-        "event_id" : "02",
-        "event_name" : "DCC CSE 19th Batch Rag Day",
-        "event_img" : "rag.jpeg",
-        "event_description" : "Rag day is an occasion of joy and celebration.Rag day is mostly arranged at the last day of university.This day provides a last chance to the students to gather and have some fun.It will create some nostalgic memories in the campus for the last time.",
-        "event_date" : "20-09-2022",
-        "event_location" : "Collage Premises",
-        "event_type" : "public",
-        "ticket_price" : "400 BDT"
+        "id" : "02",
+        "name" : "DCC CSE 19th Batch Rag Day",
+        "img" : "rag.jpeg",
+        "description" : "Rag day is an occasion of joy and celebration.Rag day is mostly arranged at the last day of university.This day provides a last chance to the students to gather and have some fun.It will create some nostalgic memories in the campus for the last time.",
+        "date" : "20-09-2022",
+        "location" : "Collage Premises",
+        "type" : "public",
+        "price" : "400 BDT"
 
     },
     {
-        "event_id" : "03",
-        "event_name" : "DCC CSE 19th Batch Gala Night",
-        "event_img" : "dinnerpart.jpeg",
-        "event_description" : "A gala is a big party.A gala often features entertainment and dinner.A Gala Dinner essentially is a party for a large number of guests. It generally features a meal, whether it is a sit-down or buffet style, entertainment, perhaps an awards section, and a theme.This might mean a black-tie dress code, catered dinner, live band, and speeches or presentations on the guest (or cause) of honor.",
-        "event_date" : "30-10-2022",
-        "event_location" : "Dhanmondi Convention Hall,Satmasjid Road,Dhanmondi",
-        "event_type" : "public",
-        "ticket_price" : "600 BDT"
+        "id" : "03",
+        "name" : "DCC CSE 19th Batch Gala Night",
+        "img" : "dinnerpart.jpeg",
+        "description" : "A gala is a big party.A gala often features entertainment and dinner.A Gala Dinner essentially is a party for a large number of guests. It generally features a meal, whether it is a sit-down or buffet style, entertainment, perhaps an awards section, and a theme.This might mean a black-tie dress code, catered dinner, live band, and speeches or presentations on the guest (or cause) of honor.",
+        "date" : "30-10-2022",
+        "location" : "Dhanmondi Convention Hall,Satmasjid Road,Dhanmondi",
+        "type" : "public",
+        "price" : "600 BDT"
 
     },
     {
-        "event_id" : "04",
-        "event_name" : "Joy Bangla Concert 2022",
-        "event_img" : "concert.jpeg",
-        "event_description" : "The Joy Bangla Concert commemorates the spirit and courage relayed to our countrymen nearly five decades ago by the Father of the Nation, through his historic speech on March 7, 1971. The speech inspired the nation to prepare for a war of independence amid widespread reports of armed mobilisation by West Pakistan.One of the most awaited concerts in the country is the Joy Bangla Concert.",
-        "event_date" : "07-03-2022",
-        "event_location" : "Bangladesh Army Stadium",
-        "event_type" : "public",
-        "ticket_price" : "1000 BDT"
+        "id" : "04",
+        "name" : "Joy Bangla Concert 2022",
+        "img" : "concert.jpeg",
+        "description" : "The Joy Bangla Concert commemorates the spirit and courage relayed to our countrymen nearly five decades ago by the Father of the Nation, through his historic speech on March 7, 1971. The speech inspired the nation to prepare for a war of independence amid widespread reports of armed mobilisation by West Pakistan.One of the most awaited concerts in the country is the Joy Bangla Concert.",
+        "date" : "07-03-2022",
+        "location" : "Bangladesh Army Stadium",
+        "type" : "public",
+        "price" : "1000 BDT"
 
     },
     {
-        "event_id" : "05",
-        "event_name" : "Victory Day Seminar 2022",
-        "event_img" : "seminar.jpeg",
-        "event_description" : "Victory day is celebrated on 16 December commemorating the ultimate victory in our Liberation War in 1971. On this day in 1971, Pakistani Army surrendered in Dhaka marking the end of nine months atrocities in Bangladesh. Pakistani General AAK Niazi officially surrendered to the Allied Forces Commander General Jagjit Singh Aurora. With that Bangladesh gained independence after a long 9 months genocide and blood bath.",
-        "event_date" : "16-12-2022",
-        "event_location" : "Victoria Park,Sadarghat",
-        "event_type" : "public",
-        "ticket_price" : "No Entry Fee"
+        "id" : "05",
+        "name" : "Victory Day Seminar 2022",
+        "img" : "seminar.jpeg",
+        "description" : "Victory day is celebrated on 16 December commemorating the ultimate victory in our Liberation War in 1971. On this day in 1971, Pakistani Army surrendered in Dhaka marking the end of nine months atrocities in Bangladesh. Pakistani General AAK Niazi officially surrendered to the Allied Forces Commander General Jagjit Singh Aurora. With that Bangladesh gained independence after a long 9 months genocide and blood bath.",
+        "date" : "16-12-2022",
+        "location" : "Victoria Park,Sadarghat",
+        "type" : "public",
+        "price" : "No Entry Fee"
 
     }
 ]

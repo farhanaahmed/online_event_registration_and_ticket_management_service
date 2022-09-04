@@ -17,7 +17,7 @@ const Events = () => {
             <div>
                 {
                     events.map(event => <Event
-                    key={event.event_id} 
+                    key={event.id} 
                     event = {event}
                     >
                     </Event>)
