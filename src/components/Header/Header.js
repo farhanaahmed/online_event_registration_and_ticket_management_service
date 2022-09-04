@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import './Header.css'
 import { getAuth, GoogleAuthProvider , signOut, browserLocalPersistence, setPersistence, signInWithPopup,onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
-import initializeAuthentication from '../../Firebase/firebase.initialize';
+import {initializeAuthentication} from '../../Firebase/firebase.initialize';
 
 const provider = new GoogleAuthProvider();
 initializeAuthentication();

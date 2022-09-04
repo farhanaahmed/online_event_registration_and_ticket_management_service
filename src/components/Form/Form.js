@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import './Form.css'
 import { useState } from 'react';
 // import EventList from '../EventList/EventList';
 import Header from '../Header/Header';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { addDoc, collection, doc } from 'firebase/firestore';
+import { getDb } from '../../Firebase/firebase.initialize';
 
 const Form = () => {
     const [name , setName] = useState('');
@@ -11,6 +14,7 @@ const Form = () => {
     const [location , setLocation] = useState('');
     const [price , setPrice] = useState('');
     const [visibility , setVisibility] = useState('');
+    const [user, setUser] = useState({});
 
     const handleNameChange =(e)=>{
         setName(e.target.value);
@@ -44,12 +48,44 @@ const Form = () => {
         price : price,
         visibility : visibility
     }
+    const db = getDb();
+    async function saveEvent(userId,event){
+        try{
+            const eventRef = collection(db,"events");
+            const userRef = doc(eventRef, userId);
+            const userDocRef = collection(userRef,"events");
+            const docRef = await addDoc(userDocRef,event);
+            console.log("Document written with ID: ",docRef.id);
+        }
+        catch(e){
+            console.error("error adding document: ",e);
+        }
+    }
     const handleSubmit=(e)=>{
         // console.log(event);
-        alert("Event Created Successfully");
         e.preventDefault();
+        saveEvent(user.id,event);
    
     }
+    useMemo(() => {
+        onAuthStateChanged(getAuth(), (user) => {
+          if (user) {
+            const {displayName,email,photoURL,uid} = user;
+            const loggedInUser = {
+              id: uid,
+              name: displayName,
+              email: email,
+              photo: photoURL
+            };
+            console.log("in form");
+            setUser(loggedInUser);
+          }
+          console.log("logging in useMemo");
+          console.log(user);
+        }); 
+        },[]);
+
+    
     return (
         <div>
             <Header></Header>
