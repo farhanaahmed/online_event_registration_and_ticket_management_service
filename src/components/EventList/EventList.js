@@ -57,7 +57,7 @@ const Event_List = () => {
                         <div className='event-list'>
                             <h2>{event.name}</h2>
                             <div className='event-details'>
-                                <p>{event.description}</p>
+                                <p className='description'>{event.description}</p>
                                 <h3>Location : {event.location}</h3>
                                 <h3>Date : {event.date}</h3>
                                 <h3>Ticket Price: {event.price} BDT</h3>
