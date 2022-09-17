@@ -47,7 +47,7 @@ const Form = () => {
         date : date,
         location : location,
         price : price,
-        visibility : visibility
+        // visibility : visibility
     }
     const db = getDb();
     const navigate = useNavigate();

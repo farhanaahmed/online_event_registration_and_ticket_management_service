@@ -11,29 +11,32 @@ const Register = () => {
 
     const handleUsernameChange =(e)=>{
         setUsername(e.target.value);
-        // console.log(name);
     }
 
     const handleEmailChange =(e)=>{
         setEmail(e.target.value);
-        // console.log(name);
     }
 
     const handlePasswordChange =(e)=>{
         setPassword(e.target.value);
-        // console.log(name);
     }
     const handleCpasswordChange =(e)=>{
         setCpassword(e.target.value);
-        // console.log(name);
     }
-
     const handleNationalIdChange =(e)=>{
-        setCpassword(e.target.value);
-        // console.log(name);
+        setNationalId(e.target.value);
+    }
+    const registerInfo = {
+        username : username,
+        email : email,
+        password : password,
+        cpassword : cpassword,
+        nationalId : nationalId,
+        // visibility : visibility
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
+        console.log(registerInfo);
     }
     return (
         <div className='register-container'>
