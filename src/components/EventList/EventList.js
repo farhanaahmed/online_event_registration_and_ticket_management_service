@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { collection, doc, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getDb } from '../../Firebase/firebase.initialize';
@@ -23,9 +23,8 @@ const Event_List = () => {
         async function getEvents(userId){
             try{
                 const eventRef = collection(db,"events");
-                const userRef = doc(eventRef, userId);
-                const userDocRef = collection(userRef,"events");
-                const eventSnapshot = await getDocs(userDocRef);
+                const q = query(eventRef, where("userId", "==", userId));
+                const eventSnapshot = await getDocs(q);
                 const eventList = eventSnapshot.docs.map(doc => doc.data());
                 console.log(eventList);
                 setEvents(eventList);
@@ -61,7 +60,7 @@ const Event_List = () => {
                                 <h3>Location : {event.location}</h3>
                                 <h3>Date : {event.date}</h3>
                                 <h3>Ticket Price: {event.price} BDT</h3>
-                                <button onClick={() => onNavigate(event)}>Create Ticket </button>
+                                <button onClick={() => onNavigate(event)}>View Details</button>
                                 <br /><br /><br />
                             </div>
                         </div>
