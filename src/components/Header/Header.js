@@ -62,7 +62,7 @@ const Header = () => {
         <div className='header'>
             <nav className='navbar'>  
                 <div className="links">
-                { user.name ?
+                { user.email ?
                   <div className="events">
                     <a href="/home">Home</a>
                     <a href="/create_events">Create Events</a>
@@ -76,7 +76,7 @@ const Header = () => {
                   
                 </div>
                 <div className="login-container">
-                  { user.name ? 
+                  { user.email ? 
                       <div className='logged-user-info'>
                         <p>{user.name}</p>
                         {/* <img src={user.photo} alt="" /> */}

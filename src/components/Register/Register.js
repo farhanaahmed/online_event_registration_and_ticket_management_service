@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import './Register.css'
 
 const Register = () => {
@@ -33,10 +34,22 @@ const Register = () => {
         cpassword : cpassword,
         nationalId : nationalId,
     }
+
+
+    const auth = getAuth();
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(registerInfo);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
+    
+
     return (
         <div className='register-container'>
             <h1>Register</h1>
