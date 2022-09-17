@@ -32,7 +32,6 @@ const Register = () => {
         password : password,
         cpassword : cpassword,
         nationalId : nationalId,
-        // visibility : visibility
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
