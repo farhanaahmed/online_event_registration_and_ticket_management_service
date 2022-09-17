@@ -14,8 +14,13 @@ const Login = () => {
         setPassword(e.target.value);
         // console.log(name);
     }
+    const loginInfo = {
+        email : email,
+        password : password,
+    }
     const handleSubmit=(e)=>{
         e.preventDefault();
+        console.log(loginInfo);
     }
     return (
         <div>
