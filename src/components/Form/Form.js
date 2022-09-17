@@ -47,16 +47,15 @@ const Form = () => {
         date : date,
         location : location,
         price : price,
-        // visibility : visibility
+        userId: user.uid,
     }
     const db = getDb();
     const navigate = useNavigate();
     async function saveEvent(userId,event){
         try{
             const eventRef = collection(db,"events");
-            const userRef = doc(eventRef, userId);
-            const userDocRef = collection(userRef,"events");
-            const docRef = await addDoc(userDocRef,event);
+            event.userId = userId
+            const docRef = await addDoc(eventRef,event);
             console.log("Document written with ID: ",docRef.id);
             navigate("/my_events");
 
