@@ -3,6 +3,7 @@ import './Header.css'
 import { getAuth, GoogleAuthProvider , signOut, browserLocalPersistence, setPersistence, signInWithPopup,onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
 import {initializeAuthentication} from '../../Firebase/firebase.initialize';
+import { useNavigate } from 'react-router-dom';
 
 const provider = new GoogleAuthProvider();
 initializeAuthentication();
@@ -25,6 +26,11 @@ const Header = () => {
     .catch((error) => {
       console.log(error.message);
     });
+  }
+
+  const navigate = useNavigate();
+  const handleLogIn = () => {
+    navigate("/login")
   }
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -74,9 +80,9 @@ const Header = () => {
                       <div className='logged-user-info'>
                         <p>{user.name}</p>
                         {/* <img src={user.photo} alt="" /> */}
-                        <button onClick={handleSignOut}>Sign Out</button>
+                        <button onClick={handleSignOut}>Log Out</button>
                       </div>:
-                      <button onClick={handleGoogleSignIn}>Sign In</button>
+                      <button onClick={handleLogIn}>Login</button>
                   }    
                 </div>
             </nav>    
