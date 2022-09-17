@@ -73,7 +73,7 @@ const Header = () => {
                   { user.name ? 
                       <div className='logged-user-info'>
                         <p>{user.name}</p>
-                        <img src={user.photo} alt="" />
+                        {/* <img src={user.photo} alt="" /> */}
                         <button onClick={handleSignOut}>Sign Out</button>
                       </div>:
                       <button onClick={handleGoogleSignIn}>Sign In</button>

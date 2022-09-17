@@ -116,14 +116,14 @@ const Form = () => {
                     Ticket Price <sup className='star'>*</sup>
                     </label><br/>
                     <input type="number" value={price} required onChange={(e)=> {handlePriceChange(e)}} /><br/><br />
-                    <label className='label'>
+                    {/* <label className='label'>
                     Visibility <sup className='star'>*</sup>
                     </label><br/>
                     <input type="radio" id="public" name= "visibility" value='public' onChange={(e)=> {handleVisibilityChange(e)}}/>
                     <label className='label' htmlFor="public">Public</label><br/>
                     <input type="radio" id= "private" name="visibility" value= 'private' onChange={(e)=> {handleVisibilityChange(e)}}/>
                     <label className='label' htmlFor="private">Private</label><br></br>
-                    <br /><br />
+                    <br /><br /> */}
                     <div className='btn'>
                         <input className='submit' type="submit" value="Create Event"/>
                     </div>

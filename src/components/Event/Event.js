@@ -28,7 +28,7 @@ const Event = (props) => {
                 <h3>Location : {event.location}</h3>
                 <h3>Date : {event.date}</h3>
                 <h3>Ticket Price: {event.price}</h3>
-                <button onClick={() => onNavigate(event)}>Show Event</button>
+                <button onClick={() => onNavigate(event)}>Create Ticket</button>
                 </div>
             </div>
         </div>

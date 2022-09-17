@@ -43,11 +43,11 @@
     color: white;
     margin: auto;
 }
-.logged-user-info img{
+/* .logged-user-info img{
     border-radius: 50%;
     width: 50px;
     margin: auto;
-}
+} */
 .login-container button{
     width: 100px;
     height: 50px;

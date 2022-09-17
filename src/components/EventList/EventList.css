@@ -7,16 +7,22 @@
     border-bottom: 1px solid lightgray;
 }
 .event-list{
+    padding: 20px;
+    background-color: black;
+    color: white;
     border-bottom: 1px solid lightgray;
     margin: 20px;
+    text-align: center;   
+}
+
+.event-list h2{
+    color: red;
 }
 .event-details button{
     width: 150px;
     font-weight: 600;
     height: 50px;
-}
-.description{
-    text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
 }

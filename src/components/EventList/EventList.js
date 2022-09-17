@@ -57,11 +57,11 @@ const Event_List = () => {
                         <div className='event-list'>
                             <h2>{event.name}</h2>
                             <div className='event-details'>
-                                <p className='description'>{event.description}</p>
+                                <p>{event.description}</p>
                                 <h3>Location : {event.location}</h3>
                                 <h3>Date : {event.date}</h3>
                                 <h3>Ticket Price: {event.price} BDT</h3>
-                                <button onClick={() => onNavigate(event)}>Show Event</button>
+                                <button onClick={() => onNavigate(event)}>Create Ticket </button>
                                 <br /><br /><br />
                             </div>
                         </div>
@@ -72,8 +72,6 @@ const Event_List = () => {
                 </div> :
                 <div></div>
             }
-            {/* <h1>My Events</h1>
-          */}
         </div>
     );
 };
