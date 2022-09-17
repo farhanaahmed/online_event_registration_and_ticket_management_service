@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
@@ -22,6 +23,12 @@ const Login = () => {
         e.preventDefault();
         console.log(loginInfo);
     }
+
+    const navigate = useNavigate();
+    const handleRegister = () => {
+      navigate("/register");
+    }
+
     return (
         <div>
             <h1 className='login-header'>
@@ -45,7 +52,7 @@ const Login = () => {
                 <div className="register">
                     <h3 className='user-type-new'>NEW CUSTOMERS</h3>
                     <h4>Please register to our website for hosting and joining in events easily. </h4>
-                    <button className='register-btn'>Register</button>
+                    <button className='register-btn' onClick={handleRegister}>Register</button>
                 </div>
             </div>
         </div>
