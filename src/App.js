@@ -7,6 +7,7 @@ import NotFound from './components/NotFound/NotFound';
 import EventList from './components/EventList/EventList';
 import EventDetails from './components/EventDetails/EventDetails';
 import Login from './components/Login/Login'
+import Register from './components/Register/Register';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
             <Route exact path='/' element={<Events />}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/register" element={<Register></Register>}></Route>
             <Route path='/home' element={<Events></Events>}></Route>
             <Route path='/my_events' element={<EventList></EventList>}></Route>
             <Route path='/create_events' element={<Form></Form>}></Route>
