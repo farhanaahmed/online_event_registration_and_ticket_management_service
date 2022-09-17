@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
 import './Register.css';
 import { useNavigate  } from 'react-router-dom';
 
@@ -44,13 +44,21 @@ const Register = () => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            navigate(-2)
+            updateUserProfile();
         })
         .catch((error) => {
             console.log(error);
         });
+    }
+
+    const updateUserProfile = ()=>{
+        updateProfile(auth.currentUser, {
+            displayName: username,
+          }).then(() => {
+            navigate(-2);
+          }).catch((error) => {
+            console.log(error);
+          });
     }
 
     return (
