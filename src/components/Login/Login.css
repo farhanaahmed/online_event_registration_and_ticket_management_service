@@ -1,0 +1,56 @@
+.login-header{
+    text-align: center;
+}
+.login-container{
+    display: flex;
+    margin-bottom: 150px;
+    margin-top: 50px;
+    border: 1px solid black;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    
+}
+.login{
+    float: left;
+    width: 45%;
+    margin: 50px;
+}
+.login-form{
+    text-align: left;
+}
+.register{
+    float: right;
+    width: 45%;
+    background-color: red;
+    margin: 50px;
+}
+.user-type-registered{
+    text-align: center;
+    color: red;
+}
+.user-type-new{
+    text-align: center;
+    color: white;
+}
+.field{
+    border: 1px solid red;
+    width: 300px;
+    height: 30px;
+}
+.submit{
+    background-color: red;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.register-btn{
+    background-color: white;
+    color: red;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+}
