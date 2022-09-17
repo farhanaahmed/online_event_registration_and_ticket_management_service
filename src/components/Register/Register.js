@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import './Register.css'
+import './Register.css';
+import { useNavigate  } from 'react-router-dom';
 
 const Register = () => {
     const[username,setUsername] = useState('');
@@ -37,18 +38,20 @@ const Register = () => {
 
 
     const auth = getAuth();
+    let navigate = useNavigate();
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            navigate(-2)
         })
         .catch((error) => {
             console.log(error);
         });
     }
-    
 
     return (
         <div className='register-container'>
