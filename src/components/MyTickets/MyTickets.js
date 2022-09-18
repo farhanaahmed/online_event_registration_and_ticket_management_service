@@ -12,12 +12,15 @@ const MyTickets = () => {
         const auth = getAuth();
 
         useMemo(()=>{
-            getTickets();
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    getTickets(user.uid);
+                }
+              }); 
         },[]);
 
-        async function getTickets(){
+        async function getTickets(userId){
             try{
-                const userId = auth.currentUser.uid;
                 const ref = collection(db,"tickets");
                 const docref = doc(ref,userId);
                 const ticketsRef = collection(docref,"tickets");
@@ -28,7 +31,7 @@ const MyTickets = () => {
                 setTickets(ticketList);
             }
             catch(e){
-                console.error("error adding document: ",e);
+                console.error("error getting document: ",e);
             }
         }
 
