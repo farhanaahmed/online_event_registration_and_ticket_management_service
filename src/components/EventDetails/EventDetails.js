@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import QRCode from 'react-qr-code';
 import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import './EventDetails.css'
 import * as htmlToImage from 'html-to-image';
 import { jsPDF } from "jspdf";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
 const EventDetails = () => {
 
     const {state} = useLocation();
     const event = state.event;
-
+    const[user,setUser] = useState({});
+    const auth = getAuth();
     const onDownloadClicked = ()=>{
         htmlToImage.toPng(document.getElementById("ticket"), { quality: 0.95 })
         .then(function (dataUrl) {
@@ -25,6 +27,32 @@ const EventDetails = () => {
           pdf.save("ticket.pdf"); 
         });
     }
+    useMemo(() => {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const {displayName,email,photoURL} = user;
+            const loggedInUser = {
+              name: displayName,
+              email: email,
+              photo: photoURL
+            };
+            console.log("setting user");
+            setUser(loggedInUser);
+          }
+          console.log("logging in useMemo");
+          console.log(user);
+        }); 
+        },[]);
+    
+
+    const handleBuyTicket = () => {
+        if(user.email){
+            console.log("go to ticket details please");
+        }
+        else{
+            console.log("please log in");
+        }
+    }
 
     return (
         <div>
@@ -36,15 +64,16 @@ const EventDetails = () => {
                     <h3>Location : {event.location}</h3>
                     <h3>Date : {event.date}</h3>
                     <h3>Ticket Price: {event.price} BDT</h3>
-                    <QRCode className='.qr-code' value={JSON.stringify({
+                    {/* <QRCode className='.qr-code' value={JSON.stringify({
                         name: event.name,
                         location: event.location,
                         date : event.date,
                         price : event.price
-                    })} />
+                    })} /> */}
                 </div>
                 <br />
-                <button onClick={onDownloadClicked}>Download Ticket</button>
+                {/* <button onClick={onDownloadClicked}>Download Ticket</button> */}
+                <button onClick={handleBuyTicket} >Buy Ticket</button>
             </div>
         </div>
         
