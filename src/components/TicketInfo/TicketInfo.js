@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import './TicketInfo.css'
 
@@ -6,6 +7,7 @@ const TicketInfo = () => {
     const[name,setName] = useState('');
     const[phone,setPhone] = useState('');
     const [numberOfTickets,setNumberOfTickets] = useState('');
+    const navigate = useNavigate();
     const handleNameChange =(e)=>{
         setName(e.target.value);
     }
@@ -25,6 +27,7 @@ const TicketInfo = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(ticketInfo);
+        navigate('/ticket_details');
     }
     return (
         <div>
