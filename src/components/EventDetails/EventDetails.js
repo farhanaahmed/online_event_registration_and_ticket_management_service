@@ -28,7 +28,7 @@ const EventDetails = () => {
     //     });
     // }
 
-    const handleBuyTicket = () => {
+    const handleGetTicket = () => {
         const user = auth.currentUser;
         if(user){
             console.log("go to ticket details please");
@@ -58,7 +58,7 @@ const EventDetails = () => {
                 </div>
                 <br />
                 {/* <button onClick={onDownloadClicked}>Download Ticket</button> */}
-                <button onClick={handleBuyTicket} >Buy Ticket</button>
+                <button onClick={handleGetTicket} >Get Ticket</button>
             </div>
         </div>
         
