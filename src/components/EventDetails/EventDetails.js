@@ -31,7 +31,11 @@ const EventDetails = () => {
     const handleGetTicket = () => {
         const user = auth.currentUser;
         if(user){
-            navigate('/ticket_info')
+            navigate('/ticket_info',{
+                state :{
+                    event: event
+                }
+            });
             console.log("go to ticket details please");
         }
         else{

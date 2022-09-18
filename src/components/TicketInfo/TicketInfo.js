@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
-import './TicketInfo.css'
+import './TicketInfo.css';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { addDoc, collection, doc } from 'firebase/firestore';
+import { getDb } from '../../Firebase/firebase.initialize';
 
 const TicketInfo = () => {
+    const {state} = useLocation();
+    const event = state.event;
+
     const[name,setName] = useState('');
     const[phone,setPhone] = useState('');
     const [numberOfTickets,setNumberOfTickets] = useState('');
@@ -23,12 +29,36 @@ const TicketInfo = () => {
         name : name,
         phone : phone,
         numberOfTickets : numberOfTickets,
+        //eventId: event.id,
+        eventName: event.name,
     }
+    const db = getDb();
+    const auth = getAuth();
+    async function saveTicket(){
+        try{
+            const user = auth.currentUser;
+            const ref = collection(db,"tickets");
+            const userTicketRef = doc(ref,user.uid);
+            const ticketsRef = collection(userTicketRef,"tickets");
+            const docRef = await addDoc(ticketsRef,ticketInfo);
+            console.log("Document written with ID: ",docRef.id);
+            //navigate("/my_events");
+
+        }
+        catch(e){
+            console.error("error adding document: ",e);
+        }
+    }
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(ticketInfo);
-        navigate('/ticket_details');
+        saveTicket();
+        //navigate('/ticket_details');
     }
+
+
+
     return (
         <div>
             <Header></Header>
