@@ -15,11 +15,17 @@ const Event = (props) => {
         })
     }
 
+    const defaultImage =" https://www.bangladeshyp.com/img/bd/m/1522560028-61-event-management-bangladesh.jpg";
 
     return (
         <div className='event-container'>
             <div className='img'>
-                <img  className='event_img' src={event.image} alt="" />
+                {
+                    event.image ? 
+                    <img  className='event_img' src={event.image} alt="" />
+                    : <img  className='event_img' src={defaultImage} alt="" />
+                }
+                
             </div>
             <div className='details'>
                 <h1>{event.name}</h1>
