@@ -7,7 +7,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { addDoc, collection, doc } from 'firebase/firestore';
 import { getDb, getStorage, getStorageBucket } from '../../Firebase/firebase.initialize';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const Form = () => {
     const [name , setName] = useState('');
@@ -74,7 +74,6 @@ const Form = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         saveImage();
-       // saveEvent(user.id,event);
     }
     useMemo(() => {
         onAuthStateChanged(getAuth(), (user) => {
@@ -102,10 +101,15 @@ const Form = () => {
             const imagesRef = ref(storage, imagePath);
             uploadBytes(imagesRef, image).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
-                console.log(snapshot.docRef);
+                console.log(snapshot);
+                getDownloadURL(snapshot.ref).then((downloadURL) => {
+                    event.image = downloadURL;
+                    saveEvent(user.id,event);
+                });
             });
         }else{
             console.log("No image selected");
+            saveEvent(user.id,event);
         }
     }
 
