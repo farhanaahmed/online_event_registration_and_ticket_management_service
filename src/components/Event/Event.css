@@ -1,11 +1,25 @@
 .event-container{
     display: flex;
     border-bottom: 1px solid lightgray;
-    /* margin: 20px; */
+    margin: 20px;
     text-align: left;
+}
+.img{
+    width: 45%;
+}
+.details{
+    width: 45%;
 }
 .event_img{
     width: 400px;
     height: 350px;
     padding: 20px;
+}
+.evnt-btn{
+    width: 150px;
+    font-weight: 600;
+    height: 50px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
 }

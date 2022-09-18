@@ -45,7 +45,7 @@ const Login = () => {
             <h1 className='login-header'>
                 Login to our website
             </h1>
-            <div className="login-container">
+            <div className="login-box">
                 <div className="login">
                     <h3 className='user-type-registered'>REGISTERED CUSTOMERS</h3>
                     <h4>If you already have an account with us, login with your email and password.</h4>

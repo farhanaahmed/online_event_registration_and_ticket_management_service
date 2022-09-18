@@ -73,12 +73,11 @@ const Header = () => {
                   </div>
 
                 }
-                  
-                </div>
+               </div>
                 <div className="login-container">
                   { user.email ? 
                       <div className='logged-user-info'>
-                        <p>{user.name}</p>
+                        <span><p>{user.name}</p></span>
                         {/* <img src={user.photo} alt="" /> */}
                         <button onClick={handleSignOut}>Log Out</button>
                       </div>:

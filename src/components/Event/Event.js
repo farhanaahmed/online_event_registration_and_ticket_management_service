@@ -18,18 +18,16 @@ const Event = (props) => {
 
     return (
         <div className='event-container'>
-            <div>
+            <div className='img'>
                 <img  className='event_img' src={event.img} alt="" />
             </div>
-            <div>
+            <div className='details'>
                 <h1>{event.name}</h1>
-                <div className='event-details'>
                 <p>{event.description}</p>
                 <h3>Location : {event.location}</h3>
                 <h3>Date : {event.date}</h3>
                 <h3>Ticket Price: {event.price}</h3>
-                <button onClick={() => onNavigate(event)}>Create Ticket</button>
-                </div>
+                <button className='evnt-btn' onClick={() => onNavigate(event)}>View Event</button>
             </div>
         </div>
     );
