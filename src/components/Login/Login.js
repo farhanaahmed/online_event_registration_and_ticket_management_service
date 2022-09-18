@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Header from '../Header/Header';
 
 const Login = () => {
     const[email,setEmail] = useState('');
@@ -40,6 +41,7 @@ const Login = () => {
 
     return (
         <div>
+            <Header></Header>
             <h1 className='login-header'>
                 Login to our website
             </h1>
