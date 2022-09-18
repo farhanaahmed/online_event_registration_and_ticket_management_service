@@ -3,45 +3,43 @@ import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getDb } from '../../Firebase/firebase.initialize';
 import Header from '../Header/Header';
-import './MyTickets.css'
+import './MyTickets.css';
+import { collection, getDocs, doc, query, where } from 'firebase/firestore';
 
 const MyTickets = () => {
-    const [user, setUser] = useState({});
-    useMemo(() => {
-        onAuthStateChanged(getAuth(), (user) => {
-          if (user) {
-            // getEvents(user.uid);
-          }
-          console.log("logging in useMemo");
-          console.log(user);
-        }); 
-        },[]);
-
         const db = getDb();
         const[tickets, setTickets] = useState();
-        // async function getEvents(userId){
-        //     try{
-        //         const eventRef = collection(db,"events");
-        //         const q = query(eventRef, where("userId", "==", userId));
-        //         const eventSnapshot = await getDocs(q);
-        //         const eventList = eventSnapshot.docs.map(doc => doc.data());
-        //         console.log(eventList);
-        //         setEvents(eventList);
-        //     }
-        //     catch(e){
-        //         console.error("error adding document: ",e);
-        //     }
-        // }
+        const auth = getAuth();
 
+        useMemo(()=>{
+            getTickets();
+        },[]);
 
-        // const navigate = useNavigate();
-        // const onNavigate = (event)=>{
-        //     navigate("/ticket_details",{
-        //         state :{
-        //             event: event
-        //         }
-        //     })
-        // }
+        async function getTickets(){
+            try{
+                const userId = auth.currentUser.uid;
+                const ref = collection(db,"tickets");
+                const docref = doc(ref,userId);
+                const ticketsRef = collection(docref,"tickets");
+
+                const ticketSnapshot = await getDocs(ticketsRef);
+                const ticketList = ticketSnapshot.docs.map(doc => doc.data());
+                console.log(ticketList);
+                setTickets(ticketList);
+            }
+            catch(e){
+                console.error("error adding document: ",e);
+            }
+        }
+
+        const navigate = useNavigate();
+        const onNavigate = (ticket)=>{
+            navigate("/ticket_details",{
+                state :{
+                    ticketInfo: ticket
+                }
+            })
+        }
 
     return (
         <div>
@@ -49,24 +47,22 @@ const MyTickets = () => {
             <h1>My Tickets</h1>
             {tickets ?
                 <div>
-                {/* {
+                {
                     tickets.map(ticket =>{
                         return (
                         <div className='event-list'>
-                            <h2>{event.name}</h2>
+                            <h2>{ticket.eventName}</h2>
                             <div className='event-details'>
-                                <p>{event.description}</p>
-                                <h3>Location : {event.location}</h3>
-                                <h3>Date : {event.date}</h3>
-                                <h3>Ticket Price: {event.price} BDT</h3>
-                                <button onClick={() => onNavigate(event)}>View Details</button>
+                                <p>Purchased by: {ticket.name}</p>
+                                <h3>Number of tickets: {ticket.numberOfTickets}</h3>
+                                <button onClick={() => onNavigate(ticket)}>View Details</button>
                                 <br /><br /><br />
                             </div>
                         </div>
                     )
 
                     })
-                } */}
+                }
                 </div> :
                 <div></div>
             }
