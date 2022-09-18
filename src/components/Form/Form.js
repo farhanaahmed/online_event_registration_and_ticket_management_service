@@ -14,6 +14,7 @@ const Form = () => {
     const [date , setDate] = useState('');
     const [location , setLocation] = useState('');
     const [price , setPrice] = useState('');
+    const [image, setImage] = useState('');
     // const [visibility , setVisibility] = useState('');
     const [user, setUser] = useState({});
 
@@ -37,6 +38,10 @@ const Form = () => {
         setPrice(e.target.value);
         // console.log(price)
     }
+    const handleImageChange =(e)=>{
+        setImage(e.target.value);
+        // console.log(price)
+    }
     // const handleVisibilityChange =(e)=>{
     //     setVisibility(e.target.value);
     //     // console.log(visibility);
@@ -48,6 +53,7 @@ const Form = () => {
         location : location,
         price : price,
         userId: user.uid,
+        image : image,
     }
     const db = getDb();
     const navigate = useNavigate();
@@ -114,7 +120,9 @@ const Form = () => {
                     <label className='label'>
                     Ticket Price <sup className='star'>*</sup>
                     </label><br/>
-                    <input type="number" value={price} required onChange={(e)=> {handlePriceChange(e)}} /><br/><br />
+                    <input type="number" value={price} min={0} required onChange={(e)=> {handlePriceChange(e)}} /><br/><br />
+                    <label className='label'>Event Image</label><br/>
+                    <input type="file" value={image} onChange={(e)=> {handleImageChange(e)}} /><br/><br />
                     {/* <label className='label'>
                     Visibility <sup className='star'>*</sup>
                     </label><br/>
