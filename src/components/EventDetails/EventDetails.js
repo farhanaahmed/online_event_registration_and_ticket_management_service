@@ -3,8 +3,6 @@ import QRCode from 'react-qr-code';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import './EventDetails.css'
-import * as htmlToImage from 'html-to-image';
-import { jsPDF } from "jspdf";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
@@ -14,19 +12,6 @@ const EventDetails = () => {
     const event = state.event;
     const auth = getAuth();
     const navigate = useNavigate();
-    // const onDownloadClicked = ()=>{
-    //     htmlToImage.toPng(document.getElementById("ticket"), { quality: 0.95 })
-    //     .then(function (dataUrl) {
-    //       var link = document.createElement('a');
-    //       link.download = 'my-image-name.jpeg';
-    //       const pdf = new jsPDF();          
-    //       const imgProps= pdf.getImageProperties(dataUrl);
-    //       const pdfWidth = pdf.internal.pageSize.getWidth();
-    //       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-    //       pdf.addImage(dataUrl, 'PNG', 0, 0,pdfWidth, pdfHeight);
-    //       pdf.save("ticket.pdf"); 
-    //     });
-    // }
 
     const handleGetTicket = () => {
         const user = auth.currentUser;

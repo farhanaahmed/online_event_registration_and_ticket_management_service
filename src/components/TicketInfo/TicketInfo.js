@@ -29,7 +29,7 @@ const TicketInfo = () => {
         name : name,
         phone : phone,
         numberOfTickets : numberOfTickets,
-        //eventId: event.id,
+        userId: "",
         eventName: event.name,
     }
     const db = getDb();
@@ -37,13 +37,13 @@ const TicketInfo = () => {
     async function saveTicket(){
         try{
             const user = auth.currentUser;
+
+            ticketInfo.userId = user.uid;
             const ref = collection(db,"tickets");
             const userTicketRef = doc(ref,user.uid);
             const ticketsRef = collection(userTicketRef,"tickets");
             const docRef = await addDoc(ticketsRef,ticketInfo);
             console.log("Document written with ID: ",docRef.id);
-            //navigate("/my_events");
-
         }
         catch(e){
             console.error("error adding document: ",e);
@@ -54,10 +54,12 @@ const TicketInfo = () => {
         e.preventDefault();
         console.log(ticketInfo);
         saveTicket();
-        //navigate('/ticket_details');
+        navigate('/ticket_details',{
+            state :{
+                ticketInfo: ticketInfo
+            }
+        });
     }
-
-
 
     return (
         <div>
