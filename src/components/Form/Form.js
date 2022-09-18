@@ -14,7 +14,7 @@ const Form = () => {
     const [date , setDate] = useState('');
     const [location , setLocation] = useState('');
     const [price , setPrice] = useState('');
-    const [visibility , setVisibility] = useState('');
+    // const [visibility , setVisibility] = useState('');
     const [user, setUser] = useState({});
 
     const handleNameChange =(e)=>{
@@ -37,10 +37,10 @@ const Form = () => {
         setPrice(e.target.value);
         // console.log(price)
     }
-    const handleVisibilityChange =(e)=>{
-        setVisibility(e.target.value);
-        // console.log(visibility);
-    }
+    // const handleVisibilityChange =(e)=>{
+    //     setVisibility(e.target.value);
+    //     // console.log(visibility);
+    // }
     const event = {
         name : name,
         description : description,

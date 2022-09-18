@@ -10,6 +10,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register';
 import TicketInfo from './components/TicketInfo/TicketInfo';
 import TicketDetails from './components/TicketDetails/TicketDetails';
+import MyTickets from './components/MyTickets/MyTickets';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/event_details" element={<EventDetails></EventDetails>}></Route>
             <Route path='/ticket_info' element={<TicketInfo></TicketInfo>} ></Route>
             <Route path='/ticket_details' element={<TicketDetails></TicketDetails>} ></Route>
+            <Route path='/my_tickets' element={<MyTickets></MyTickets>} ></Route>
             <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       </BrowserRouter>

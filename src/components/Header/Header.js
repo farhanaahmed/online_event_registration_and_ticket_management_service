@@ -67,6 +67,7 @@ const Header = () => {
                     <a href="/home">Home</a>
                     <a href="/create_events">Create Events</a>
                     <a href="/my_events">My Events</a>
+                    <a href="/my_tickets">My Tickets</a>
                   </div>:
                   <div className="home">
                     <a href="/home">Home</a>
