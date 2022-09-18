@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import QRCode from 'react-qr-code';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import './EventDetails.css'
 import * as htmlToImage from 'html-to-image';
@@ -12,44 +12,29 @@ const EventDetails = () => {
 
     const {state} = useLocation();
     const event = state.event;
-    const[user,setUser] = useState({});
     const auth = getAuth();
-    const onDownloadClicked = ()=>{
-        htmlToImage.toPng(document.getElementById("ticket"), { quality: 0.95 })
-        .then(function (dataUrl) {
-          var link = document.createElement('a');
-          link.download = 'my-image-name.jpeg';
-          const pdf = new jsPDF();          
-          const imgProps= pdf.getImageProperties(dataUrl);
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-          pdf.addImage(dataUrl, 'PNG', 0, 0,pdfWidth, pdfHeight);
-          pdf.save("ticket.pdf"); 
-        });
-    }
-    useMemo(() => {
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            const {displayName,email,photoURL} = user;
-            const loggedInUser = {
-              name: displayName,
-              email: email,
-              photo: photoURL
-            };
-            console.log("setting user");
-            setUser(loggedInUser);
-          }
-          console.log("logging in useMemo");
-          console.log(user);
-        }); 
-        },[]);
-    
+    const navigate = useNavigate();
+    // const onDownloadClicked = ()=>{
+    //     htmlToImage.toPng(document.getElementById("ticket"), { quality: 0.95 })
+    //     .then(function (dataUrl) {
+    //       var link = document.createElement('a');
+    //       link.download = 'my-image-name.jpeg';
+    //       const pdf = new jsPDF();          
+    //       const imgProps= pdf.getImageProperties(dataUrl);
+    //       const pdfWidth = pdf.internal.pageSize.getWidth();
+    //       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    //       pdf.addImage(dataUrl, 'PNG', 0, 0,pdfWidth, pdfHeight);
+    //       pdf.save("ticket.pdf"); 
+    //     });
+    // }
 
     const handleBuyTicket = () => {
-        if(user.email){
+        const user = auth.currentUser;
+        if(user){
             console.log("go to ticket details please");
         }
         else{
+            navigate('/login')
             console.log("please log in");
         }
     }
