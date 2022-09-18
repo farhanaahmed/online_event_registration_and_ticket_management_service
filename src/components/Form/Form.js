@@ -5,8 +5,9 @@ import { useState } from 'react';
 import Header from '../Header/Header';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { addDoc, collection, doc } from 'firebase/firestore';
-import { getDb } from '../../Firebase/firebase.initialize';
+import { getDb, getStorage, getStorageBucket } from '../../Firebase/firebase.initialize';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { ref, uploadBytes } from "firebase/storage";
 
 const Form = () => {
     const [name , setName] = useState('');
@@ -39,8 +40,7 @@ const Form = () => {
         // console.log(price)
     }
     const handleImageChange =(e)=>{
-        setImage(e.target.value);
-        // console.log(price)
+        setImage(e.target.files[0]);
     }
     // const handleVisibilityChange =(e)=>{
     //     setVisibility(e.target.value);
@@ -53,12 +53,13 @@ const Form = () => {
         location : location,
         price : price,
         userId: user.uid,
-        image : image,
+        image : "",
     }
     const db = getDb();
     const navigate = useNavigate();
     async function saveEvent(userId,event){
         try{
+            
             const eventRef = collection(db,"events");
             event.userId = userId
             const docRef = await addDoc(eventRef,event);
@@ -71,10 +72,9 @@ const Form = () => {
         }
     }
     const handleSubmit=(e)=>{
-        // console.log(event);
         e.preventDefault();
-        saveEvent(user.id,event);
-   
+        saveImage();
+       // saveEvent(user.id,event);
     }
     useMemo(() => {
         onAuthStateChanged(getAuth(), (user) => {
@@ -95,6 +95,20 @@ const Form = () => {
         },[]);
 
     
+    const storage = getStorageBucket();
+    const saveImage = ()=>{
+        if(image){
+            const imagePath = `event_image/${image.name}`;
+            const imagesRef = ref(storage, imagePath);
+            uploadBytes(imagesRef, image).then((snapshot) => {
+                console.log('Uploaded a blob or file!');
+                console.log(snapshot.docRef);
+            });
+        }else{
+            console.log("No image selected");
+        }
+    }
+
     return (
         <div>
             <Header></Header>
@@ -122,7 +136,7 @@ const Form = () => {
                     </label><br/>
                     <input type="number" value={price} min={0} required onChange={(e)=> {handlePriceChange(e)}} /><br/><br />
                     <label className='label'>Event Image</label><br/>
-                    <input type="file" value={image} onChange={(e)=> {handleImageChange(e)}} /><br/><br />
+                    <input type="file" onChange={(e)=> {handleImageChange(e)}} /><br/><br />
                     {/* <label className='label'>
                     Visibility <sup className='star'>*</sup>
                     </label><br/>
