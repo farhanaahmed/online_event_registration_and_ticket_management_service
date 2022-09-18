@@ -29,7 +29,7 @@ const Events = () => {
     return (
         <div className='events'>
             <Header></Header>
-            <h1 className='featured'>Featured Events</h1>
+            <h1 className='featured'>All Events</h1>
             <div>
                 {
                     events.map(event => <Event
