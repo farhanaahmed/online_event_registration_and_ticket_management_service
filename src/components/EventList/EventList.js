@@ -43,6 +43,8 @@ const Event_List = () => {
                 }
             })
         }
+        const defaultImage ="https://images.unsplash.com/photo-1600224503431-2b507981ad32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80";
+
 
     return (
         <div>
@@ -53,14 +55,22 @@ const Event_List = () => {
                 {
                     events.map(event =>{
                         return (
-                        <div className='event-list'>
-                            <h2>{event.name}</h2>
-                            <div className='event-details'>
+                        <div className='event-container'>
+                            <div className='img'>
+                            {
+                                event.image ? 
+                                <img  className='event_img' src={event.image} alt="" />
+                                :<img  className='event_img' src={defaultImage} alt="" />
+                            }
+                    
+                            </div>
+                            <div className='details'>
+                                <h2>{event.name}</h2>
                                 <p>{event.description}</p>
                                 <h3>Location : {event.location}</h3>
                                 <h3>Date : {event.date}</h3>
                                 <h3>Ticket Price: {event.price} BDT</h3>
-                                <button onClick={() => onNavigate(event)}>View Details</button>
+                                <button className='evnt-btn' onClick={() => onNavigate(event)}>View Details</button>
                                 <br /><br /><br />
                             </div>
                         </div>

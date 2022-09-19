@@ -67,12 +67,12 @@ const TicketInfo = () => {
             <h1>Ticket Information</h1>
             <form onSubmit={(e) => {handleSubmit(e)}}>
                 <label>Name :</label><br/><br />
-                <input className='input' type="text" placeholder='John Doe' required onChange={(e)=>{handleNameChange(e)}} /><br/><br />
+                <input className='input' type="text" placeholder='Farhana Ahmed' required onChange={(e)=>{handleNameChange(e)}} /><br/><br />
                 <label>Phone :</label><br/><br />
                 <input className='input' type="numeric" placeholder='Enter your phone number' required onChange={(e)=>{handlePhoneChange(e)}} /><br/><br />
                 <label>Number of Tickets :</label><br/><br />
                 <input className='input' type="number" min={1} placeholder='Enter number of tickets you want' required onChange={(e)=>{handleNumberOfTicketsChange(e)}} /><br/><br />
-                <input className='submit' type="submit" value="Confirm"/>  
+                <input className='evnt-btn' type="submit" value="Confirm"/>  
             </form>
         </div>
     );

@@ -47,18 +47,18 @@ const MyTickets = () => {
     return (
         <div>
             <Header></Header>
-            <h1>My Tickets</h1>
+            <h1 className='ticket-header'>My Tickets</h1>
             {tickets ?
                 <div>
                 {
                     tickets.map(ticket =>{
                         return (
-                        <div className='event-list'>
+                        <div className='ticket-container'>
                             <h2>{ticket.eventName}</h2>
-                            <div className='event-details'>
-                                <p>Purchased by: {ticket.name}</p>
+                            <div className='ticket-details'>
+                                <h3>Purchased by: {ticket.name}</h3>
                                 <h3>Number of tickets: {ticket.numberOfTickets}</h3>
-                                <button onClick={() => onNavigate(ticket)}>View Details</button>
+                                <button className='ticket-btn' onClick={() => onNavigate(ticket)}>View Details</button>
                                 <br /><br /><br />
                             </div>
                         </div>

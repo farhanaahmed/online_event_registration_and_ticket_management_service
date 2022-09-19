@@ -150,7 +150,7 @@ const Form = () => {
                     <label className='label' htmlFor="private">Private</label><br></br>
                     <br /><br /> */}
                     <div className='btn'>
-                        <input className='submit' type="submit" value="Create Event"/>
+                        <input className='evnt-btn' type="submit" value="Create Event"/>
                     </div>
                 </form>
             </div>

@@ -23,19 +23,19 @@
 .register{
     float: right;
     width: 45%;
-    background-color: red;
+    background-color: tomato;
     margin: 50px;
 }
 .user-type-registered{
     text-align: center;
-    color: red;
+    color: tomato;
 }
 .user-type-new{
     text-align: center;
     color: white;
 }
 .field{
-    border: 1px solid red;
+    border: 1px solid tomato;
     width: 300px;
     height: 30px;
 }

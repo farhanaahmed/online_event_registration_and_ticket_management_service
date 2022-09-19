@@ -44,7 +44,7 @@ const TicketDetails = () => {
                     })} />
                 </div>
                 <br />
-                <button onClick={onDownloadClicked}>Download Ticket</button>
+                <button className='evnt-btn' onClick={onDownloadClicked}>Download Ticket</button>
             </div>
         </div>
     );

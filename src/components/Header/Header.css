@@ -11,7 +11,7 @@
 
 .header nav a{
     text-decoration: none;
-    color: red;
+    color: white;
     margin-bottom: 20px;
     padding: 10px;
     font-size: large;
@@ -21,6 +21,7 @@
 
 .header nav a:hover{
     background-color: white;
+    color: black;
     font-size: larger;
 
 }
@@ -53,4 +54,6 @@
     padding: 10px;
     cursor: pointer;
     margin: auto;
+    border-radius: 10px;
+
 }

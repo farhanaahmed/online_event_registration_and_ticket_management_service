@@ -47,23 +47,23 @@ const Login = () => {
             </h1>
             <div className="login-box">
                 <div className="login">
-                    <h3 className='user-type-registered'>REGISTERED CUSTOMERS</h3>
+                    <h3 className='user-type-registered'>REGISTERED USERS</h3>
                     <h4>If you already have an account with us, login with your email and password.</h4>
                     <div className="login-form">
                     <form onSubmit={(e) => {handleSubmit(e)}}>
                         <label>E-mail :</label><br/><br />
-                        <input className='field' type="email" placeholder='ex: johndoe@example.com' required onChange={(e)=>{handleEmailChange(e)}} /><br/><br />
+                        <input className='field' type="email" placeholder='ex: farhanaahmed@example.com' required onChange={(e)=>{handleEmailChange(e)}} /><br/><br />
                          <label>Password :</label><br/><br />
                          <input className='field' type="password" placeholder='Enter your password' required onChange={(e)=>{handlePasswordChange(e)}} /><br/><br />
-                         <input className='submit' type="submit" value="Login"/>    
+                         <input className='evnt-btn' type="submit" value="Login"/>    
                     </form>
                     </div>
                     
                 </div>
                 <div className="register">
-                    <h3 className='user-type-new'>NEW CUSTOMERS</h3>
+                    <h3 className='user-type-new'>NEW USERS</h3>
                     <h4>Please register to our website for hosting and joining in events easily. </h4>
-                    <button className='register-btn' onClick={handleRegister}>Register</button>
+                    <button className='evnt-btn' onClick={handleRegister}>Register</button>
                 </div>
             </div>
         </div>
